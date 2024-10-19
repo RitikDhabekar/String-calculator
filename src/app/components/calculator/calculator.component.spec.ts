@@ -43,6 +43,11 @@ describe('CalculatorComponent', () => {
   it('Should return 3 for input: "//;\n1;2"',()=>{
     expect(component.add("//;\n1;2")).toBe(3)
   })
+    
+  it('Should throw an error for negative numbers in input',()=>{
+    expect(()=> component.add("1,-2")).toThrowError('Negative numbers not allowed : -2')
+    expect( ()=> component.add("1,-2,-3")).toThrowError('Negative numbers not allowed : -2,-3')
+  })
 
 });
 
