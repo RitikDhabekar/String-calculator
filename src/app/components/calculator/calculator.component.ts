@@ -13,7 +13,13 @@ export class CalculatorComponent {
     if(input ===''){
       return 0
     }
-    const numbers = input.split(/,|\n/).map((num)=> parseInt(num,10))
+    let splitter = /,|\n/;
+    if(input.startsWith('//')){
+      const newDelimiter =  input.split("\n")[0]
+      splitter = new RegExp(newDelimiter[2])
+    input = input.split("\n")[1]
+    }
+    const numbers = input.split(splitter).map((num)=> parseInt(num,10))
     const total= numbers.reduce((sum, num)=>{
       return sum +num
     })
