@@ -39,6 +39,10 @@ describe('CalculatorComponent', () => {
   it('Should return 6 for input: "1\n2,3"',()=>{
     expect(component.add("1\n2,3")).toBe(6)
   })
+    
+  it('Should return 3 for input: "//;\n1;2"',()=>{
+    expect(component.add("//;\n1;2")).toBe(3)
+  })
 
 });
 
